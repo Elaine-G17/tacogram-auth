@@ -17,17 +17,17 @@
       <div class="col-3 text-end">
         <!-- TODO: if logged in user, show user's first name and Logout button -->
   <p>
-     <% if @current_user %>
+  <% if @current_user %>
       Hey, <%= @current_user["first_name"]%>
-      <a href="/sessions" class="btn btn-default">Logout</a>
+      <a href="/sessions/new" class="btn btn-default">Logout</a>
   </p>
-    <% else %>
+  <% else %>
     <p>
         <a href="/login" class="btn btn-default">Login</a> |
         <a href="/users/new" class="btn btn-default">Sign Up</a>
-        <a href="/logout" class="btn btn-default">Logout</a>
+        <a href="/sessions/new" class="btn btn-default">Logout</a>
     </p>
-    <% end %>
+  <% end %>
         <!-- TODO: if logged in user, hide Login and Sign Up -->
       </div>
     </div>
@@ -42,6 +42,7 @@
       </div>
     <% else %>
         <p> Please Login to post </p>
+    <% end %>
     </div>
 
     <%= yield %>
