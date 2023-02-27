@@ -9,10 +9,15 @@ class PostsController < ApplicationController
     end
   
     def create
+    if @current_user 
       @post = Post.new
       @post["body"] = params["post"]["body"]
       @post["image"] = params["post"]["image"]
+      @post["user_id"] = @current_user["id"]
       @post.save
+    else
+      flash["notice"] = "Please Login to Post"
+    end
       redirect_to "/posts"
     end
   

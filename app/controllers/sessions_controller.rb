@@ -11,15 +11,16 @@ def create
         redirect_to "/posts"
         else
         flash["notice"] = "Wrong email/password"
-        redirect_to "/sessions"
+        redirect_to "/sessions/new"
         end
  else
-    redirect_to "sessions"
+    redirect_to "/sessions/new"
  end
 end
 
 def destroy
     session["user_id"] = nil
+    flash["notice"] = "Goodbye."
     redirect_to "/sessions/new"
 end
 end
